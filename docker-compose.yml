@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  nexus-node:
+    image: nexusnetwork/nexus-node:latest
+    container_name: nexus-node
+    restart: unless-stopped
+    command: >
+      nexus-network start
+      --node-id 37452801
+      --max-threads 4
+    volumes:
+      - ./data:/root/.nexus
+    ports:
+      - "8080:8080"
